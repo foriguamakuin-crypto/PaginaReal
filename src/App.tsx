@@ -10,6 +10,7 @@ import SizeGuide from './pages/SizeGuide';
 import Shipping from './pages/Shipping';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PaymentResult from './pages/PaymentResult';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/envios" element={<Shipping />} />
           <Route path="/nosotros" element={<About />} />
           <Route path="/contacto" element={<Contact />} />
+          <Route path="/pago-resultado" element={<PaymentResult />} />
         </Routes>
       </main>
       <Footer />

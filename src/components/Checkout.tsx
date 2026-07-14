@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShoppingBag, CreditCard, Loader2, Check, Lock, MapPin, User } from 'lucide-react';
+import { X, ShoppingBag, CreditCard, Loader2, Lock, MapPin, User } from 'lucide-react';
 import { useCart } from '../hooks/useCart';
 import { getProductImage } from '../data/products';
 import { supabase } from '../lib/supabase';
+import WompiWidget, { type WompiConfig } from './WompiWidget';
 
 function formatPrice(price: number) {
   return new Intl.NumberFormat('es-CO', {
@@ -37,11 +38,13 @@ const emptyForm: CustomerForm = {
 };
 
 export default function Checkout({ isOpen, onClose }: CheckoutProps) {
-  const { items, totalPrice, clearCart, setIsCartOpen } = useCart();
+  const { items, totalPrice } = useCart();
   const [form, setForm] = useState<CustomerForm>(emptyForm);
   const [errors, setErrors] = useState<Partial<Record<keyof CustomerForm, string>>>({});
   const [submitting, setSubmitting] = useState(false);
   const [createdOrderId, setCreatedOrderId] = useState<string | null>(null);
+  const [wompiConfig, setWompiConfig] = useState<WompiConfig | null>(null);
+  const [paymentError, setPaymentError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const subtotal = totalPrice;
@@ -67,6 +70,8 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
     setForm(emptyForm);
     setErrors({});
     setCreatedOrderId(null);
+    setWompiConfig(null);
+    setPaymentError(null);
     onClose();
   };
 
@@ -142,23 +147,54 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
       if (itemsError) throw new Error(itemsError.message);
 
       setCreatedOrderId(order.id);
+
+      // Generate Wompi integrity signature via edge function
+      const amountInCents = Math.round(total * 100);
+      const redirectUrl = `${window.location.origin}/pago-resultado?order=${order.id}`;
+
+      const functionUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/wompi-checkout`;
+      const wompiRes = await fetch(functionUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          reference: order.id,
+          amountInCents,
+          currency: 'COP',
+          customerEmail: form.email.trim(),
+        }),
+      });
+
+      if (!wompiRes.ok) {
+        const errBody = await wompiRes.json().catch(() => ({}));
+        throw new Error(errBody.error ?? 'No se pudo iniciar el pago con Wompi');
+      }
+
+      const wompiData = await wompiRes.json();
+      setWompiConfig({
+        publicKey: wompiData.publicKey,
+        currency: wompiData.currency,
+        amountInCents: wompiData.amountInCents,
+        reference: wompiData.reference,
+        signature: wompiData.signature,
+        redirectUrl,
+        customerEmail: wompiData.customerEmail,
+      });
     } catch (err) {
-      setErrors(prev => ({
-        ...prev,
-        address:
-          err instanceof Error
-            ? `Error al preparar el pedido: ${err.message}`
-            : 'Error al preparar el pedido',
-      }));
+      const msg = err instanceof Error ? err.message : 'Error al preparar el pedido';
+      if (createdOrderId) {
+        setPaymentError(msg);
+      } else {
+        setErrors(prev => ({
+          ...prev,
+          address: `Error al preparar el pedido: ${msg}`,
+        }));
+      }
     } finally {
       setSubmitting(false);
     }
-  };
-
-  const handleFinishSuccess = () => {
-    clearCart();
-    setIsCartOpen(false);
-    handleClose();
   };
 
   const inputClass = (field: keyof CustomerForm) =>
@@ -206,31 +242,46 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
               ref={scrollRef}
               className="flex-1 min-h-0 overflow-y-auto"
             >
-              {createdOrderId ? (
+              {createdOrderId && wompiConfig ? (
+                <WompiWidget
+                  config={wompiConfig}
+                  onClose={() => {
+                    setWompiConfig(null);
+                    setCreatedOrderId(null);
+                  }}
+                />
+              ) : createdOrderId && !wompiConfig && !paymentError ? (
                 <div className="flex flex-col items-center justify-center text-center py-20 px-6">
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ type: 'spring', damping: 12, stiffness: 200 }}
-                    className="w-20 h-20 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center mb-6"
-                  >
-                    <Check className="w-10 h-10 text-green-400" />
-                  </motion.div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    Pedido preparado correctamente
+                  <div className="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-6">
+                    <Loader2 className="w-8 h-8 text-gold-400 animate-spin" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    Preparando pago seguro...
                   </h3>
-                  <p className="text-dark-400 text-sm max-w-md mb-2">
-                    Hemos registrado tu pedido con el número:
+                  <p className="text-dark-400 text-sm max-w-md">
+                    Tu pedido fue registrado. Estamos iniciando el proceso de pago con Wompi.
                   </p>
-                  <p className="text-gold-400 font-mono text-lg mb-1">
-                    {createdOrderId.slice(0, 8).toUpperCase()}
-                  </p>
+                </div>
+              ) : paymentError ? (
+                <div className="flex flex-col items-center justify-center text-center py-20 px-6">
+                  <div className="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center mb-6">
+                    <X className="w-8 h-8 text-red-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    No se pudo iniciar el pago
+                  </h3>
+                  <p className="text-dark-400 text-sm max-w-md mb-2">{paymentError}</p>
                   <p className="text-dark-500 text-xs max-w-sm mb-8">
-                    La pasarela de pago Wompi se integrará próximamente. Por ahora tu pedido
-                    queda guardado como <span className="text-dark-300">pendiente de pago</span>.
+                    Tu pedido quedó registrado como pendiente. Puedes intentarlo de nuevo.
                   </p>
-                  <button onClick={handleFinishSuccess} className="btn-gold">
-                    Entendido
+                  <button
+                    onClick={() => {
+                      setPaymentError(null);
+                      setCreatedOrderId(null);
+                    }}
+                    className="btn-gold"
+                  >
+                    Intentar de nuevo
                   </button>
                 </div>
               ) : (
@@ -458,7 +509,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
 
                         <div className="flex items-center justify-center gap-2 mt-4 text-dark-500 text-xs">
                           <Lock className="w-3 h-3" />
-                          Pago seguro mediante Wompi (próximamente)
+                          Pago seguro mediante Wompi
                         </div>
                       </>
                     )}
