@@ -1,4 +1,4 @@
-import { createHmac } from "node:crypto";
+import { createHash } from "node:crypto";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -30,22 +30,42 @@ Deno.serve(async (req: Request) => {
 
     if (!body.reference || !body.amountInCents || !body.currency) {
       return new Response(
-        JSON.stringify({ error: "reference, amountInCents and currency are required" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({
+          error: "reference, amountInCents and currency are required",
+        }),
+        {
+          status: 400,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+        }
       );
     }
 
     const integrityKey = Deno.env.get("WOMPI_INTEGRITY_KEY");
+
     if (!integrityKey) {
       return new Response(
-        JSON.stringify({ error: "Server misconfiguration: missing integrity key" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({
+          error: "Server misconfiguration: missing integrity key",
+        }),
+        {
+          status: 500,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+        }
       );
     }
 
-    // Wompi integrity signature: SHA256(reference + amountInCents + currency + integrityKey)
-    const signature = createHmac("sha256", integrityKey)
-      .update(`${body.reference}${body.amountInCents}${body.currency}`)
+    // Firma oficial para Wompi Widget Checkout:
+    // SHA256(reference + amountInCents + currency + integrityKey)
+    const signature = createHash("sha256")
+      .update(
+        `${body.reference}${body.amountInCents}${body.currency}${integrityKey}`
+      )
       .digest("hex");
 
     const publicKey = Deno.env.get("WOMPI_PUBLIC_KEY");
@@ -59,12 +79,26 @@ Deno.serve(async (req: Request) => {
         signature,
         customerEmail: body.customerEmail ?? null,
       }),
-      { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      {
+        status: 200,
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+        },
+      }
     );
   } catch (err) {
     return new Response(
-      JSON.stringify({ error: err instanceof Error ? err.message : "Internal error" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      JSON.stringify({
+        error: err instanceof Error ? err.message : "Internal error",
+      }),
+      {
+        status: 500,
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+        },
+      }
     );
   }
 });
