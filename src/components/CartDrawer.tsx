@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { useCart } from '../hooks/useCart';
 import { X, Plus, Minus, Trash2, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { getProductImage } from '../data/products';
+import Checkout from './Checkout';
 
 function formatPrice(price: number) {
   return new Intl.NumberFormat('es-CO', {
@@ -14,20 +16,16 @@ function formatPrice(price: number) {
 
 export default function CartDrawer() {
   const { items, isCartOpen, setIsCartOpen, removeItem, updateQuantity, totalPrice, clearCart } = useCart();
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   const handleCheckout = () => {
     if (items.length === 0) return;
-    const lines = items.map(
-      i =>
-        `- ${i.product.name} | Talla: ${i.size} | Color: ${i.color} | Cant: ${i.quantity} | ${formatPrice(i.unitPrice * i.quantity)}`
-    );
-    const message = `Hola MOXX, quiero realizar un pedido:\n\n${lines.join('\n')}\n\n*Total: ${formatPrice(totalPrice)}*`;
-    const url = `https://wa.me/573203177677?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
     setIsCartOpen(false);
+    setIsCheckoutOpen(true);
   };
 
   return (
+    <>
     <AnimatePresence>
       {isCartOpen && (
         <>
@@ -155,7 +153,7 @@ export default function CartDrawer() {
                   </span>
                 </div>
                 <button onClick={handleCheckout} className="btn-gold w-full">
-                  Finalizar Pedido por WhatsApp
+                  Finalizar Pedido
                 </button>
                 <button
                   onClick={clearCart}
@@ -169,5 +167,8 @@ export default function CartDrawer() {
         </>
       )}
     </AnimatePresence>
+
+      <Checkout isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} />
+    </>
   );
 }
