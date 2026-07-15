@@ -69,7 +69,7 @@ Deno.serve(async (req: Request) => {
       .digest("hex");
 
     const publicKey = Deno.env.get("WOMPI_PUBLIC_KEY");
-console.log("PUBLIC KEY:", publicKey);
+
     return new Response(
       JSON.stringify({
         publicKey,
