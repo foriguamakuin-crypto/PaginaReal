@@ -173,6 +173,9 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
       }
 
       const wompiData = await wompiRes.json();
+      
+      console.log("Respuesta de wompi-checkout:", wompiData);
+      
       setWompiConfig({
         publicKey: wompiData.publicKey,
         currency: wompiData.currency,
