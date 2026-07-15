@@ -174,7 +174,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
 
       const wompiData = await wompiRes.json();
       
-      console.log("Respuesta de wompi-checkout:", wompiData);
+      console.log(JSON.stringify(wompiData, null, 2));
       
       setWompiConfig({
         publicKey: wompiData.publicKey,
