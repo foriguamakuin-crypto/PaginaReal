@@ -154,10 +154,15 @@ export default function Catalog() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="mb-10 overflow-hidden rounded-[20px] border border-white/10 shadow-2xl flex items-center justify-center bg-dark-900"
+              className="mb-10 overflow-hidden rounded-[20px] border border-white/10 shadow-2xl"
               style={{ height: 'clamp(200px, 30vw, 320px)' }}
             >
-              <p className="text-dark-500 text-sm italic">Banner de Gatos próximamente</p>
+              <img
+                src="/images/catalog/gatrosss.jpeg"
+                alt="Gatos MOXX"
+                className="w-full h-full object-cover"
+                draggable={false}
+              />
             </motion.div>
           )}
         </AnimatePresence>
