@@ -245,10 +245,11 @@ export const products: Product[] = [
     description:
       'Delicado, seguro y con mucho estilo. Elaborado con cinta suave de 1 cm de ancho y un moño liviano. Cuenta con elástico de seguridad anti-ahorque que se libera automáticamente ante un tirón fuerte, ideal para gatos curiosos. Incluye un dije decorativo de gatico. Es el accesorio perfecto para que tu mascota luzca elegante tanto en casa como en sus fotografías.',
     colors: [
+      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/mononegro.jpeg'] },
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/monorojo.jpeg'] },
       { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/monoazul.jpeg'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/monorosado.jpeg'] },
-      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/mononegro.jpeg'] },
+      
       { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/monorosaoscuro.jpeg'] },
     ],
     sizes: [
