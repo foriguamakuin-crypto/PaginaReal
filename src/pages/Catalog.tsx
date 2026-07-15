@@ -127,6 +127,41 @@ export default function Catalog() {
           </p>
         </motion.div>
 
+        {/* Category Banner */}
+        <AnimatePresence mode="wait">
+          {activeCategory === 'dog' && (
+            <motion.div
+              key="dog-banner"
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+              className="mb-10 overflow-hidden rounded-[20px] border border-white/10 shadow-2xl"
+              style={{ height: 'clamp(200px, 30vw, 320px)' }}
+            >
+              <img
+                src="/images/catalog/WhatsApp_Image_2026-07-14_at_3.11.29_PM.jpeg"
+                alt="Perros MOXX"
+                className="w-full h-full object-cover"
+                draggable={false}
+              />
+            </motion.div>
+          )}
+          {activeCategory === 'cat' && (
+            <motion.div
+              key="cat-banner"
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+              className="mb-10 overflow-hidden rounded-[20px] border border-white/10 shadow-2xl flex items-center justify-center bg-dark-900"
+              style={{ height: 'clamp(200px, 30vw, 320px)' }}
+            >
+              <p className="text-dark-500 text-sm italic">Banner de Gatos próximamente</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Filters */}
         <div className="mb-10 space-y-6">
           {/* Search */}
