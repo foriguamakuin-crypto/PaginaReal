@@ -13,7 +13,7 @@ export const products: Product[] = [
     colors: [
       { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/1azul.jpeg'] },
       { name: 'Gris', hex: '#8a8a8a', images: ['/images/catalog/aaaaa.jpeg'] },
-      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/1negro.jpeg'] },
+      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/111.jpeg'] },
     ],
     sizes: [
       { name: 'XS', price: 42500 },
