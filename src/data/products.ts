@@ -177,7 +177,7 @@ export const products: Product[] = [
     description:
       'Collar fabricado en cuero 100% de alta calidad con costuras reforzadas, acolchado interno suave y diseño ancho de 38 mm. Incluye grabado decorativo de hueso y huella, cierre tipo americano y argolla metálica de alta resistencia. Diseñado especialmente para perros grandes.',
     colors: [
-      { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/collarperrovino.jpeg'] },
+      { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/collarperrovino.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/collarhuellan.jpeg'] },
       { name: 'Café', hex: '#5c3a21', images: ['/images/catalog/collarhuellac.jpeg'] },
       { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/collarhuellaca.jpeg'] },
