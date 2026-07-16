@@ -199,11 +199,11 @@ export const products: Product[] = [
     description:
       'Collar fabricado en cuero 100% de alta calidad con costuras reforzadas, acolchado interno suave, diseño ancho de 38 mm, cierre tipo americano y argolla metálica reforzada. Incorpora decoración con taches planos para un estilo elegante y resistente.',
     colors: [
-      { name: 'Aguamarina', hex: '#7fd4d0', images: ['/images/catalog/pontaazul.png'] },
       { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/pontavino.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/pontanegra.png'] },
       { name: 'Café', hex: '#5c3a21', images: ['/images/catalog/pontacafe.png'] },
       { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/pontabeich.png'] },
+      { name: 'Aguamarina', hex: '#7fd4d0', images: ['/images/catalog/pontaazul.png'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/pontarosa.png'] },
     ],
     sizes: [
@@ -220,10 +220,10 @@ export const products: Product[] = [
     description:
       'Collar fabricado en cuero 100% de alta calidad con costuras reforzadas, acolchado interno suave, diseño ancho de 38 mm, cierre tipo americano y argolla metálica reforzada. Incorpora taches tipo punta para un estilo robusto y llamativo sin sacrificar la comodidad.',
     colors: [
-      { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/collarpuntasca.jpeg'] },
       { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/puntavino.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/puntanegra.png'] },
       { name: 'Café', hex: '#5c3a21', images: ['/images/catalog/collarpuntasc.jpeg'] },
+      { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/collarpuntasca.jpeg'] },
       { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/collarpuntasa.jpeg'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/puntarosa.png'] },
     ],
@@ -266,8 +266,8 @@ export const products: Product[] = [
     description:
       'Delicado, seguro y con mucho estilo. Fabricado con cinta suave de 1 cm y elástico de seguridad anti-ahorque que se abre automáticamente con un tirón fuerte, ofreciendo mayor protección para gatos curiosos. Incluye un dije decorativo de gatico. Un diseño elegante, cómodo y ligero para el uso diario.',
     colors: [
-      { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/monopuntosazul.png'] },
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/monopuntorojo.png'] },
+      { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/monopuntosazul.png'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/monopuntosrosa.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/monopuntosnegro.png'] },
       { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/monopuntosmorado.png'] },
@@ -301,9 +301,9 @@ export const products: Product[] = [
     description:
       'Delicado, seguro y con mucho estilo. Fabricado con cinta suave de 1 cm y un elegante accesorio tipo smoking. Cuenta con sistema de graduación que permite ajustar fácilmente el tamaño del collar para brindar mayor comodidad. Incluye un dije decorativo de gatico. Un diseño sofisticado para ocasiones especiales o para el uso diario.',
     colors: [
-      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/mono2morado.png'] },
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/mono2rojo.png'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/mono2rosado.png'] },
+      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/mono2morado.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/mono2negro.png'] },
     ],
     sizes: [
