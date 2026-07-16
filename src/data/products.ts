@@ -111,7 +111,7 @@ export const products: Product[] = [
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/pecherasrosa.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/tironesnegro.jpeg'] },
       { name: 'Amarillo', hex: '#ffe600', images: ['/images/catalog/tironesamarillo.jpeg'] },
-      { name: 'NaranjaG', hex: '#b64301', images: ['/images/catalog/tironesraro.jpeg'] },
+      { name: 'NaranjaG', hex: '#b64301', images: ['/images/catalog/correcionnaranja.png'] },
     ],
     sizes: [
       { name: 'XS', price: 69000 },
