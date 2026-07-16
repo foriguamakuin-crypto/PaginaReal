@@ -83,7 +83,7 @@ export const products: Product[] = [
       { name: 'Verde', hex: '#2e8b57', images: ['/images/catalog/verdemono.png'] },
       { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/tailsmono.png'] },
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/rojomono.png'] },
-      { name: 'Matizado Azul', hex: '#5a82c4', images: ['/images/catalog/azulmono.png'] },
+      { name: 'Matizado Azul', hex: '#5a82c4', images: ['/images/catalog/azulclaromono.png'] },
       { name: 'Matizado Rojo', hex: '#d94a4a', images: ['/images/catalog/rojoblancomono.png'] },
       { name: 'Matizado Fucsia', hex: '#e96bb0', images: ['/images/catalog/rosamono.png'] },
     ],
