@@ -220,7 +220,7 @@ export const products: Product[] = [
     description:
       'Collar fabricado en cuero 100% de alta calidad con costuras reforzadas, acolchado interno suave, diseño ancho de 38 mm, cierre tipo americano y argolla metálica reforzada. Incorpora taches tipo punta para un estilo robusto y llamativo sin sacrificar la comodidad.',
     colors: [
-      { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/collarpuntasv.jpeg'] },
+      { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/puntavino.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/puntanegra.png'] },
       { name: 'Café', hex: '#5c3a21', images: ['/images/catalog/collarpuntasc.jpeg'] },
       { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/collarpuntasca.jpeg'] },
