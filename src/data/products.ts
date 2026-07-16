@@ -199,11 +199,11 @@ export const products: Product[] = [
     description:
       'Collar fabricado en cuero 100% de alta calidad con costuras reforzadas, acolchado interno suave, diseño ancho de 38 mm, cierre tipo americano y argolla metálica reforzada. Incorpora decoración con taches planos para un estilo elegante y resistente.',
     colors: [
+      { name: 'Aguamarina', hex: '#7fd4d0', images: ['/images/catalog/pontaazul.png'] },
       { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/pontavino.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/pontanegra.png'] },
       { name: 'Café', hex: '#5c3a21', images: ['/images/catalog/pontacafe.png'] },
       { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/pontabeich.png'] },
-      { name: 'Aguamarina', hex: '#7fd4d0', images: ['/images/catalog/pontaazul.png'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/pontarosa.png'] },
     ],
     sizes: [
