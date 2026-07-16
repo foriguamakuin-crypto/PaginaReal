@@ -107,7 +107,7 @@ export const products: Product[] = [
       { name: 'Verde', hex: '#2e8b57', images: ['/images/catalog/tironesverdemilitar.jpeg'] },
       { name: 'Morado', hex: '#6a2c8a', images: ['/images/catalog/tironesmorado.jpeg'] },
       { name: 'Azul Navy', hex: '#3b6bb0', images: ['/images/catalog/pecherasazul.png'] },
-      { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/tironesrojo.jpeg'] },
+      { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/pecherasroja.png'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/tironesrosadojpeg.jpeg'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/tironesnegro.jpeg'] },
       { name: 'Amarillo', hex: '#ffe600', images: ['/images/catalog/tironesamarillo.jpeg'] },
