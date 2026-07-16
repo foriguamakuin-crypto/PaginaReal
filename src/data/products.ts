@@ -285,7 +285,7 @@ export const products: Product[] = [
       'Delicado, seguro y con mucho estilo. Fabricado con cinta suave de 1 cm e incorpora una flor decorativa liviana. Su sistema de graduación permite ajustar fácilmente el tamaño del collar para mayor comodidad. Incluye un dije decorativo de gatico. Ideal para quienes buscan un accesorio elegante y cómodo para su mascota.',
     colors: [
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/florroja.png'] },
-      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/florosado.jpeg'] },
+      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/florrosa.png'] },
       { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/flormorada.png'] },
     ],
     sizes: [
