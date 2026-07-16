@@ -199,7 +199,7 @@ export const products: Product[] = [
     description:
       'Collar fabricado en cuero 100% de alta calidad con costuras reforzadas, acolchado interno suave, diseño ancho de 38 mm, cierre tipo americano y argolla metálica reforzada. Incorpora decoración con taches planos para un estilo elegante y resistente.',
     colors: [
-      { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/collartachev.jpeg'] },
+      { name: 'Vinotinto', hex: '#5e2129', images: ['/images/catalog/collarperrovino.jpeg'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/collartachen.jpeg'] },
       { name: 'Café', hex: '#5c3a21', images: ['/images/catalog/collartachec.jpeg'] },
       { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/collartacheca.jpeg'] },
