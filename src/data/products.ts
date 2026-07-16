@@ -225,7 +225,7 @@ export const products: Product[] = [
       { name: 'Café', hex: '#5c3a21', images: ['/images/catalog/collarpuntasc.jpeg'] },
       { name: 'Miel', hex: '#c8975a', images: ['/images/catalog/collarpuntasca.jpeg'] },
       { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/collarpuntasa.jpeg'] },
-      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/collarpuntasr.jpeg'] },
+      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/puntarosa.png'] },
     ],
     sizes: [
       { name: 'M', price: 110000, measurement: '36 a 45 cm' },
