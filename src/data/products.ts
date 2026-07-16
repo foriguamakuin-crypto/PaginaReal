@@ -108,7 +108,7 @@ export const products: Product[] = [
       { name: 'Morado', hex: '#6a2c8a', images: ['/images/catalog/tironesmorado.jpeg'] },
       { name: 'Azul Navy', hex: '#3b6bb0', images: ['/images/catalog/pecherasazul.png'] },
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/pecherasroja.png'] },
-      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/tironesrosadojpeg.jpeg'] },
+      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/pecherasrosa.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/tironesnegro.jpeg'] },
       { name: 'Amarillo', hex: '#ffe600', images: ['/images/catalog/tironesamarillo.jpeg'] },
       { name: 'NaranjaG', hex: '#b64301', images: ['/images/catalog/tironesraro.jpeg'] },
