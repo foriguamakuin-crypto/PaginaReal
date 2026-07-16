@@ -77,7 +77,7 @@ export const products: Product[] = [
     description:
       'Diseño ergonómico acolchado, equipado con tensores que permiten ajustar el tamaño del artículo. Fabricado con materiales de alta resistencia, suaves y transpirables. Sus bordes redondeados evitan rozaduras en la piel y el pelaje de la mascota. Incluye traílla.',
     colors: [
-      { name: 'Militar Azul', hex: '#2c3e50', images: ['/images/catalog/arneslineaprincipenegroazul.jpeg'] },
+      { name: 'Militar Azul', hex: '#2c3e50', images: ['/images/catalog/azulmono.png'] },
       { name: 'Militar Verde', hex: '#3d4a2a', images: ['/images/catalog/militarmono.png'] },
       { name: 'Cafe', hex: '#a09060', images: ['/images/catalog/cafemono.png'] },
       { name: 'Verde', hex: '#2e8b57', images: ['/images/catalog/verdemono.png'] },
