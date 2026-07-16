@@ -286,7 +286,7 @@ export const products: Product[] = [
     colors: [
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/florojo.jpeg'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/florosado.jpeg'] },
-      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/flormorado.jpeg'] },
+      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/flormorada.png'] },
     ],
     sizes: [
       { name: 'XS', price: 20000 },
