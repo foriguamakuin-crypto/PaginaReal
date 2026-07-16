@@ -301,10 +301,10 @@ export const products: Product[] = [
     description:
       'Delicado, seguro y con mucho estilo. Fabricado con cinta suave de 1 cm y un elegante accesorio tipo smoking. Cuenta con sistema de graduación que permite ajustar fácilmente el tamaño del collar para brindar mayor comodidad. Incluye un dije decorativo de gatico. Un diseño sofisticado para ocasiones especiales o para el uso diario.',
     colors: [
-      { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/gatorojo.jpeg'] },
-      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/gatorosado.jpeg'] },
-      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/gatomorado.jpeg'] },
-      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/gatonegro.jpeg'] },
+      { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/mono2rojo.png'] },
+      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/mono2rosado.png'] },
+      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/mono2morado.png'] },
+      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/mono2negro.png'] },
     ],
     sizes: [
       { name: 'XS', price: 22000 },
