@@ -266,7 +266,7 @@ export const products: Product[] = [
     description:
       'Delicado, seguro y con mucho estilo. Fabricado con cinta suave de 1 cm y elástico de seguridad anti-ahorque que se abre automáticamente con un tirón fuerte, ofreciendo mayor protección para gatos curiosos. Incluye un dije decorativo de gatico. Un diseño elegante, cómodo y ligero para el uso diario.',
     colors: [
-      { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/coquetorojo.jpeg'] },
+      { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/moñopuntorojo.png'] },
       { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/coquetoazul.jpeg'] },
       { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/coquetorosado.jpeg'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/coquetonegro.jpeg'] },
