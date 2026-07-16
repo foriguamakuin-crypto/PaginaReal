@@ -268,9 +268,9 @@ export const products: Product[] = [
     colors: [
       { name: 'Rojo', hex: '#c0232a', images: ['/images/catalog/monopuntorojo.png'] },
       { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/monopuntosazul.png'] },
-      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/coquetorosado.jpeg'] },
-      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/coquetonegro.jpeg'] },
-      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/coquetomorado.jpeg'] },
+      { name: 'Fucsia', hex: '#e63b8d', images: ['/images/catalog/monopuntosrosa.png'] },
+      { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/monopuntosnegro.png'] },
+      { name: 'Lila', hex: '#b57edc', images: ['/images/catalog/monopuntosmorado.png'] },
     ],
     sizes: [{ name: 'Única', price: 20000 }],
     oneSize: true,
