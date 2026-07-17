@@ -11,7 +11,7 @@ export const products: Product[] = [
     description:
       'Diseño ergonómico acolchado, equipado con tensores que permiten ajustar el tamaño del artículo. Fabricado con materiales de alta resistencia, suaves y transpirables. Sus bordes redondeados evitan rozaduras en la piel y el pelaje de la mascota. Incluye traílla.',
     colors: [
-      { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/111azul.png'] },
+      { name: 'Azul', hex: '#3b6bb0', images: ['/images/catalog/111.png'] },
       { name: 'Gris', hex: '#8a8a8a', images: ['/images/catalog/girrrs.png'] },
       { name: 'Negro', hex: '#1c1c1c', images: ['/images/catalog/111.jpeg'] },
     ],
